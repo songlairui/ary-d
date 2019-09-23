@@ -1,0 +1,64 @@
+{
+  "name": "ary-d",
+  "description": "execute my commands such as fs.readdir, typeorm#entity.save()",
+  "version": "0.0.0",
+  "author": "songlairui @songlairui",
+  "bin": {
+    "ary-d": "./bin/run"
+  },
+  "bugs": "https://github.com/songlairui/ary-d/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "@types/inquirer": "^6.5.0",
+    "conf": "^6.0.1",
+    "inquirer": "^7.0.0",
+    "inquirer-select-directory": "^1.2.0",
+    "simple-git": "^1.126.0",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/tslint": "^3",
+    "@types/node": "^10",
+    "globby": "^10",
+    "ts-node": "^8",
+    "tslint": "^5",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/songlairui/ary-d",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "ary-d",
+    "plugins": [
+      "@oclif/plugin-help"
+    ],
+    "hooks": {
+      "init": "./lib/hooks/init/init"
+    }
+  },
+  "repository": "songlairui/ary-d",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "tslint -p . -t stylish",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
