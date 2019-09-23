@@ -35,6 +35,9 @@ export default class DirsLs extends Command {
     if (answer.workingDir && answer.workingDir !== '----') {
       config.set(DIR_WORKING, answer.workingDir)
       this.log('[config] `dir:working` <-', answer.workingDir)
+    } else {
+      config.set(DIR_WORKING, '')
+      this.log('[config] `dir:working` clear!')
     }
   }
 }
