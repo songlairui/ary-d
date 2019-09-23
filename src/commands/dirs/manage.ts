@@ -4,7 +4,7 @@ import inquirer = require('inquirer')
 import config from '../../config'
 
 export default class DirsLs extends Command {
-  static description = 'describe the command here'
+  static description = 'show config dirs and deselect to remove'
 
   static flags = {
     help: flags.help({ char: 'h' }),

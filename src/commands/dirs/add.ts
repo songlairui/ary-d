@@ -3,9 +3,10 @@ import inquirer = require('inquirer')
 import { homedir } from 'os'
 
 import config from '../../config'
+import { DIRS } from '../../constant'
 
 export default class DirsAdd extends Command {
-  static description = 'describe the command here'
+  static description = 'add config:dirs'
 
   static flags = {
     help: flags.help({ char: 'h' }),
@@ -36,8 +37,12 @@ export default class DirsAdd extends Command {
       }
     ])
     const { codingDir } = answers
-    const dirs = config.get('dirs')
-    dirs.push(codingDir)
-    config.set('dirs', dirs)
+    if (codingDir) {
+      const dirs = config.get(DIRS)
+      dirs.push(codingDir)
+      config.set(DIRS, dirs)
+    } else {
+      this.log('no dir select!')
+    }
   }
 }
