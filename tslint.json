@@ -2,6 +2,7 @@
   "extends": "@oclif/tslint",
   "rules": {
     "object-curly-spacing": [2, "always"],
-    "space-before-function-paren": false
+    "space-before-function-paren": false,
+    "ter-indent": false
   }
 }
