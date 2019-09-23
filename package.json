@@ -49,7 +49,8 @@
       "@oclif/plugin-help"
     ],
     "hooks": {
-      "init": "./lib/hooks/init/init"
+      "init": "./lib/hooks/init/init",
+      "invalid-working-dir": "./lib/hooks/invalid-working-dir/auto-dirs-ls"
     }
   },
   "repository": "songlairui/ary-d",
