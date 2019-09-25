@@ -2,6 +2,7 @@ import { Command, flags } from '@oclif/command'
 import inquirer = require('inquirer')
 
 import config from '../../config'
+import { DIRS } from '../../constant'
 
 export default class DirsLs extends Command {
   static description = 'show config dirs and deselect to remove'
@@ -19,7 +20,7 @@ export default class DirsLs extends Command {
   async run() {
     this.log('Coding Dirs:')
 
-    const dirs: string[] = config.get('dirs') || []
+    const dirs: string[] = config.get(DIRS) || []
     const answer = await inquirer.prompt([
       {
         type: 'checkbox',
@@ -32,7 +33,7 @@ export default class DirsLs extends Command {
       }
     ])
     if (answer.dirs.length !== dirs.length) {
-      config.set('dirs', answer.dirs)
+      config.set(DIRS, answer.dirs)
       this.log('[config] `dirs` updated!')
     }
   }
